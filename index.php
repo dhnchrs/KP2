@@ -87,7 +87,7 @@
 			<svg height="210" width="500" style="position:absolute;top:450px;left:20px;">
 				<line x1="0" y1="200" x2="180" y2="200" style="stroke:black;stroke-width:5" />
 			</svg>
-			<!--GARIS TENGAH PUTIH-->
+			<!--GARIS TENGAH-->
 			<svg height="210" width="2000" style="position:absolute;top:450px;left:206px;">
 				<line x1="0" y1="200" x2="900" y2="200" style="stroke:white;stroke-width:10" />
 			</svg>
