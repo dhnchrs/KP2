@@ -67,7 +67,6 @@
 				<div class="MAN"></div>
 				<div class="MAMIN"></div>
 			</div>
-			<!--SEGITIGA-->
 			<svg height="600" width="900" style="position:absolute;top:140px;left:190px;">
 				<polygon points="360,0 800,510 10,510" style="fill:white;stroke:black;stroke-width:5" />
 			</svg>
