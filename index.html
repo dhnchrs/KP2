@@ -14,36 +14,36 @@
 				left: 10px;
 			}
 			.TMA {
-				border-bottom: 5px solid blue;
-				max-height: 200px;
+				border-bottom: 1px solid blue;
+				max-height: 220px;
 				position: absolute;
 				top: -340px;
-				left: -190px;
-				width: 170px;
+				left: -210px;
+				width: 190px;
 			}
 			.MAB {
-				border-bottom: 5px solid red;
-				max-height: 200px;
+				border-bottom: 1px solid red;
+				max-height: 220px;
 				position: absolute;
 				top: -340px;
-				left: -190px;
-				width: 170px;
+				left: -210px;
+				width: 190px;
 			}
 			.MAN {
-				border-bottom: 5px solid yellow;
-				max-height: 200px;
+				border-bottom: 1px solid yellow;
+				max-height: 220px;
 				position: absolute;
 				top: -340px;
-				left: -190px;
-				width: 170px;
+				left: -210px;
+				width: 190px;
 			}
 			.MAMIN {
-				border-bottom: 5px solid lightgreen;
-				max-height: 200px;
+				border-bottom: 1px solid lightgreen;
+				max-height: 220px;
 				position: absolute;
 				top: -340px;
-				left: -190px;
-				width: 170px;
+				left: -210px;
+				width: 190px;
 			}
 
 			#rotate_{
@@ -63,7 +63,6 @@
 			<div class="MAN" id="MAN"></div>
 			<div class="MAMIN" id="MAMIN"></div>
 		</div>
-		
 		<svg height="320px" width="480px" style="position:absolute;top:100px;left:20px;">
 			<g>
 				<polygon points="170,40 300,240 60,240" style="fill:white;stroke:white;stroke-width:5" />
@@ -72,13 +71,13 @@
 				<!--GARIS 45 ke atas-->
 				<line x1="0" y1="-195" x2="-113" y2="10" style="stroke:black;stroke-width:5;" transform="translate(172, 230)" />
 				<!--GARIS 45 ke bawah-->
-				<line x1="0" y1="-100" x2="176" y2="170" style="stroke:black;stroke-width:5;" transform="translate(228, 136)" />
+				<line x1="0" y1="-100" x2="176" y2="170" style="stroke:black;stroke-width:5;" transform="translate(227, 136)" />
 				<!--LENGKUNG-->
-				<path d="M20 80 Q 50 40 80 80" style="fill:white;stroke:black;stroke-width:5;" transform="translate(150, -42)" />
+				<path d="M20 80 Q 50 40 80 80" style="fill:white;stroke:black;stroke-width:5;" transform="translate(149, -41)" />
 				<!--GARIS 45 ke atas-->
-				<line x1="0" y1="100" x2="90" y2="40" style="stroke:black;stroke-width:5" transform="translate(402, 206)" />
+				<line x1="0" y1="100" x2="90" y2="40" style="stroke:black;stroke-width:5" transform="translate(401, 206)" />
 				<!--GARIS KANAN BAWAH-->
-				<line x1="0" y1="100" x2="64" y2="100" style="stroke:black;stroke-width:5" transform="translate(384, 176)" />
+				<line x1="0" y1="100" x2="64" y2="100" style="stroke:black;stroke-width:5" transform="translate(383, 176)" />
 			</g>
 		</svg>
 	</div>
@@ -88,12 +87,15 @@
 			var MAB = document.getElementById('MAB');
 			var MAN = document.getElementById('MAN');
 			var MAMIN = document.getElementById('MAMIN');
-			TMA.style.height = nTMA + "px";
-			MAB.style.height = nMAB + "px";
-			MAN.style.height = nMAN + "px";
-			MAMIN.style.height = nMAMIN + "px";
+			var MAX = Math.max(nTMA, nMAB, nMAN, nMAMIN);
+			//220 ==> max-width dari TMA,MAB,MAN,MAMIN
+			TMA.style.height = ((220/MAX) * nTMA) + "px";
+			MAB.style.height = ((220/MAX) * nMAB) + "px";
+			MAN.style.height = ((220/MAX) * nMAN) + "px";
+			MAMIN.style.height = ((220/MAX) * nMAMIN) + "px";
 		}
-		gambarBendungan(200,100,150,50);
+		gambarBendungan(97.23, 100, 99, 92.1);
+		//gambarBendungan(276.68, 284.3, 282.96, 275.57);
 	</script>
 </body>
 </html>﻿
