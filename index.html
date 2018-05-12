@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-        	<script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
 		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 		<style>
 			body{
@@ -56,20 +56,22 @@
 				-ms-transform: rotate(180deg);
 				transform: rotate(180deg);
 			}
-			label {
-				margin: 51px 10px;
-				font-size: 3px;
+			span{
+				position:absolute;
+				bottom:0;
+				right:0;
+				font-size:3px;
+				margin:-2.5px -20px;
 			}
 		</style>
 	</head>
 <body>
-	<label id="ket"></label>
 	<div class="content">
 		<div id="rotate_">
-			<div class="TMA" id="TMA"></div>
-			<div class="MAB" id="MAB"></div>
-			<div class="MAN" id="MAN"></div>
-			<div class="MAMIN" id="MAMIN"></div>
+			<div class="TMA" id="TMA"><span id="rotate_"><label id="ketTMA"></label></span></div>
+			<div class="MAB" id="MAB"><span id="rotate_"><label id="ketMAB"></label></span></div>
+			<div class="MAN" id="MAN"><span id="rotate_"><label id="ketMAN"></label></span></div>
+			<div class="MAMIN" id="MAMIN"><span id="rotate_"><label id="ketMAMIN"></label></span></div>
 		</div>
 		<svg height="320px" width="480px" style="position:absolute;top:100px;left:30px;">
 			<g>
@@ -103,13 +105,10 @@
 			MAN.style.height = ((180/MAX) * nMAN) + "px";
 			MAMIN.style.height = ((180/MAX) * nMAMIN) + "px";
 			
-			if ((nTMA < nMAMIN)) {
-				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font><br/><font color='blue'>TMA : "+nTMA+"</font>";
-			} else if ((nTMA > nMAMIN) && (nTMA < nMAN)) {
-				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='blue'>TMA : "+nTMA+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font>";
-			} else if (nTMA > nMAN  && (nTMA < nMAB)) {
-				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='blue'>TMA : "+nTMA+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font>";
-			}
+			document.getElementById('ketTMA').innerHTML = "<font color='blue'>TMA : " + nTMA + "</font>";
+			document.getElementById('ketMAB').innerHTML = "<font color='red'>MAB : " + nMAB + "</font>";
+			document.getElementById('ketMAN').innerHTML = "<font color='orange'>MAN : " + nMAN + "</font>";
+			document.getElementById('ketMAMIN').innerHTML = "<font color='gray'>MAMIN : " + nMAMIN + "</font>";
 		}
 		//Contoh angka TMA, MAB, MAN, MAMIN diambil dari http://hidrologi.bbws-bsolo.net/bendungan
 		//TMA > MAMIN dan TMA < MAN
