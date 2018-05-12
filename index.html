@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-        	<script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
 		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 		<style>
 			body{
@@ -15,7 +15,7 @@
 			.content{
 				position: absolute;
 				top: -50px;
-				left: 35px;
+				left: 0px;
 			}
 			.TMA {
 				border-bottom: 1px solid blue;
@@ -56,13 +56,14 @@
 				-ms-transform: rotate(180deg);
 				transform: rotate(180deg);
 			}
-			table {
-				margin: 51px 2px;
-				font-size: 4px;
+			label {
+				margin: 51px 10px;
+				font-size: 3px;
 			}
 		</style>
 	</head>
 <body>
+	<label id="ket"></label>
 	<div class="content">
 		<div id="rotate_">
 			<div class="TMA" id="TMA"></div>
@@ -103,33 +104,11 @@
 			MAMIN.style.height = ((180/MAX) * nMAMIN) + "px";
 			
 			if ((nTMA < nMAMIN)) {
-				$('body').append('<table style="margin:24px 0px">');
-				$('body').append('<tr><td><font size="1px" color="red">MAB</font></td><td><font size="1px" color="red">:</font></td><td><font size="1px" color="red">'+nMAB+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="orange">MAN</font></td><td><font size="1px" color="orange">:</font></td><td><font size="1px" color="orange">'+nMAN+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="gray">MAMin</font></td><td><font size="1px" color="gray">:</font></td><td><font size="1px" color="gray">'+nMAMIN+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="blue">TMA</font></td><td><font size="1px" color="blue">:</font></td><td><font size="1px" color="blue">'+nTMA+'</font></td></tr>');
-				$('body').append('</table>');
+				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font><br/><font color='blue'>TMA : "+nTMA+"</font>";
 			} else if ((nTMA > nMAMIN) && (nTMA < nMAN)) {
-				$('body').append('<table style="margin:24px 0px">');
-				$('body').append('<tr><td><font size="1px" color="red">MAB</font></td><td><font size="1px" color="red">:</font></td><td><font size="1px" color="red">'+nMAB+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="orange">MAN</font></td><td><font size="1px" color="orange">:</font></td><td><font size="1px" color="orange">'+nMAN+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="blue">TMA</font></td><td><font size="1px" color="blue">:</font></td><td><font size="1px" color="blue">'+nTMA+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="gray">MAMin</font></td><td><font size="1px" color="gray">:</font></td><td><font size="1px" color="gray">'+nMAMIN+'</font></td></tr>');
-				$('body').append('</table>');
+				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='blue'>TMA : "+nTMA+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font>";
 			} else if (nTMA > nMAN  && (nTMA < nMAB)) {
-				$('body').append('<table style="margin:24px 0px">');
-				$('body').append('<tr><td><font size="1px" color="red">MAB</font></td><td><font size="1px" color="red">:</font></td><td><font size="1px" color="red">'+nMAB+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="blue">TMA</font></td><td><font size="1px" color="blue">:</font></td><td><font size="1px" color="blue">'+nTMA+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="orange">MAN</font></td><td><font size="1px" color="orange">:</font></td><td><font size="1px" color="orange">'+nMAN+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="gray">MAMin</font></td><td><font size="1px" color="gray">:</font></td><td><font size="1px" color="gray">'+nMAMIN+'</font></td></tr>');
-				$('body').append('</table>');
-			} else if (nTMA > nMAB) {
-				$('body').append('<table style="margin:24px 0px">');
-				$('body').append('<tr><td><font size="1px" color="blue">TMA</font></td><td><font size="1px" color="blue">:</font></td><td><font size="1px" color="blue">'+nTMA+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="red">MAB</font></td><td><font size="1px" color="red">:</font></td><td><font size="1px" color="red">'+nMAB+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="orange">MAN</font></td><td><font size="1px" color="orange">:</font></td><td><font size="1px" color="orange">'+nMAN+'</font></td></tr>');
-				$('body').append('<tr><td><font size="1px" color="gray">MAMin</font></td><td><font size="1px" color="gray">:</font></td><td><font size="1px" color="gray">'+nMAMIN+'</font></td></tr>');
-				$('body').append('</table>');
+				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='blue'>TMA : "+nTMA+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font>";
 			}
 		}
 		//Contoh angka TMA, MAB, MAN, MAMIN diambil dari http://hidrologi.bbws-bsolo.net/bendungan
@@ -139,7 +118,6 @@
 		//TMA > MAN dan TMA < MAB
 			//gambarBendungan(110.60, 110.86, 110.56, 105.00);
 		//TMA < MAMIN belum ada contoh
-		//TMA > MAB belum ada contoh
 	</script>
 </body>
 </html>﻿
