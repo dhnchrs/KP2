@@ -15,7 +15,7 @@
 			.content{
 				position: absolute;
 				top: -50px;
-				left: 0px;
+				left: 140px;
 			}
 			.TMA {
 				border-bottom: 1px solid blue;
@@ -56,14 +56,19 @@
 				-ms-transform: rotate(180deg);
 				transform: rotate(180deg);
 			}
-			label {
-				margin: 51px 7px;
-				font-size: 3px;
+			label{
+				font-size:14pt;
+				margin:51px 40px;
 			}
 		</style>
 	</head>
 <body>
-	<label id="ket"></label>
+	<label>
+		<span id="ketMAB"></span><br/>
+		<span id="ketTMA" style="font-size:18pt;margin:51px -30px;"></span><br/>
+		<span id="ketMAN"></span><br/>
+		<span id="ketMAMIN"></span>
+	</label>
 	<div class="content">
 		<div id="rotate_">
 			<div class="TMA" id="TMA"></div>
@@ -103,22 +108,19 @@
 			MAN.style.height = ((180/MAX) * nMAN) + "px";
 			MAMIN.style.height = ((180/MAX) * nMAMIN) + "px";
 			
-			if ((nTMA < nMAMIN)) {
-				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font><br/><font color='blue'>TMA : "+nTMA+"</font>";
-			} else if ((nTMA > nMAMIN) && (nTMA < nMAN)) {
-				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='blue'>TMA : "+nTMA+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font>";
-			} else if (nTMA > nMAN  && (nTMA < nMAB)) {
-				document.getElementById('ket').innerHTML = "<font color='red'>MAB : "+nMAB+"</font><br/><font color='blue'>TMA : "+nTMA+"</font><br/><font color='orange'>MAN : "+nMAN+"</font><br/><font color='gray'>MAMin : "+nMAMIN+"</font>";
-			}
+			document.getElementById('ketTMA').innerHTML = "<font color='blue'>TMA : " + nTMA + "</font>";
+			document.getElementById('ketMAB').innerHTML = "<font color='red'>MAB : " + nMAB + "</font>";
+			document.getElementById('ketMAN').innerHTML = "<font color='orange'>MAN : " + nMAN + "</font>";
+			document.getElementById('ketMAMIN').innerHTML = "<font color='gray'>MAMin : " + nMAMIN + "</font>";
 		}
 		//Contoh angka TMA, MAB, MAN, MAMIN diambil dari http://hidrologi.bbws-bsolo.net/bendungan
 		//TMA > MAMIN dan TMA < MAN
-			gambarBendungan(97.13, 100.00, 99.00, 92.10);
+			//gambarBendungan(97.13, 100.00, 99.00, 92.10);
 			//gambarBendungan(276.68, 284.30, 282.96, 275.57);
 		//TMA > MAN dan TMA < MAB
 			//gambarBendungan(110.60, 110.86, 110.56, 105.00);
-		//TMA < MAMIN belum ada contoh
-		//TMA > MAB belum ada contoh
+		//Angka TMA dibuat lebih besar dari yg lain
+			gambarBendungan(101.13, 100.00, 99.00, 92.10);
 	</script>
 </body>
 </html>﻿
