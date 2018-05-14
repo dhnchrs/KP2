@@ -13,114 +13,54 @@
 				background-color:#fff;
 			}
 			.content{
-				position: absolute;
-				top: -50px;
-				left: 140px;
-			}
-			.TMA {
-				border-bottom: 1px solid blue;
-				max-height: 180px;
-				position: absolute;
-				top: -282px;
-				left: -228px;
-				width: 198px;
-			}
-			.MAB {
-				border-bottom: 1px solid red;
-				max-height: 180px;
-				position: absolute;
-				top: -282px;
-				left: -228px;
-				width: 198px;
-			}
-			.MAN {
-				border-bottom: 1px solid orange;
-				max-height: 180px;
-				position: absolute;
-				top: -282px;
-				left: -228px;
-				width: 198px;
-			}
-			.MAMIN {
-				border-bottom: 1px solid gray;
-				max-height: 180px;
-				position: absolute;
-				top: -282px;
-				left: -228px;
-				width: 198px;
-			}
-			#rotate_{
-				-webkit-transform: rotate(180deg);
-				-moz-transform: rotate(180deg);
-				-o-transform: rotate(180deg);
-				-ms-transform: rotate(180deg);
-				transform: rotate(180deg);
-			}
-			label{
-				font-size:14pt;
-				margin:51px 40px;
+				position: relative;
+				top: 50px;
 			}
 		</style>
 	</head>
 <body>
-	<label>
-		<span id="ketMAB"></span><br/>
-		<span id="ketTMA" style="font-size:18pt;margin:51px -30px;"></span><br/>
-		<span id="ketMAN"></span><br/>
-		<span id="ketMAMIN"></span>
-	</label>
 	<div class="content">
-		<div id="rotate_">
-			<div class="TMA" id="TMA"></div>
-			<div class="MAB" id="MAB"></div>
-			<div class="MAN" id="MAN"></div>
-			<div class="MAMIN" id="MAMIN"></div>
-		</div>
-		<svg height="320px" width="480px" style="position:absolute;top:100px;left:30px;">
+		<svg height="380px" width="1000px">
 			<g>
-				<polygon points="170,20 170,180 40,180" style="fill:white;stroke:white;stroke-width:5" />
-				<rect width="58" height="160" style="fill:white;stroke:white;stroke-width:5" transform="translate(170, 20)"/>
-				<!--GARIS KIRI BAWAH-->
-				<line x1="0" y1="-100" x2="39" y2="-100" style="stroke:black;stroke-width:5" transform="translate(0, 280)" />
-				<!--GARIS KANAN BAWAH-->
-				<line x1="0" y1="100" x2="38" y2="100" style="stroke:blue;stroke-width:1" transform="translate(413, 116)" />
-				<!--GARIS 45 ke atas-->
-				<line x1="0" y1="-145" x2="-134" y2="20" style="stroke:black;stroke-width:5;" transform="translate(171, 161)" />
-				<!--GARIS 45 ke bawah-->
-				<line x1="0" y1="-100" x2="206" y2="120" style="stroke:black;stroke-width:5;" transform="translate(227, 116)" />
-				<!--LENGKUNG-->
-				<path d="M20 80 Q 50 50 80 80" style="fill:white;stroke:black;stroke-width:5;" transform="translate(149, -62)" />
-				<!--GARIS 45 ke atas-->
-				<line x1="0" y1="100" x2="90" y2="10" style="stroke:black;stroke-width:5" transform="translate(430, 136)" />	
+				<text id="nilaiTMA" x="35" y="15" fill="blue" font-size="14pt"></text>
+				<text id="nilaiMAB" x="22" y="45" fill="red" font-size="18pt"></text>
+				<text id="nilaiMAN" x="35" y="75" fill="orange" font-size="14pt"></text>
+				<text id="nilaiMAMIN" x="35" y="105" fill="gray" font-size="14pt"></text>
+				<line id="TMA" x1="180" x2="520" style="stroke:blue;stroke-width:2" />
+				<line id="MAB" x1="180" x2="520" style="stroke:red;stroke-width:2" />
+				<line id="MAN" x1="180" x2="520" style="stroke:red;stroke-width:2" />
+				<line id="MAMIN" x1="180" x2="520" style="stroke:red;stroke-width:2" />
+				<path d="M180 272, L240 272, C600 -88, 460 -88, 820 272, L920 370, 1020 272" stroke="black" stroke-width="5" fill="white" />
+				<line x1="880" y1="330" x2="960" y2="330" style="stroke:blue;stroke-width:5" />
 			</g>
 		</svg>
 	</div>
-	<script type="application/javascript">
-		function gambarBendungan(nTMA, nMAB, nMAN, nMAMIN) {
-			var TMA = document.getElementById('TMA');
-			var MAB = document.getElementById('MAB');
-			var MAN = document.getElementById('MAN');
-			var MAMIN = document.getElementById('MAMIN');
+	<script type="text/javascript">
+		function gambarBendungan(nTMA, nMAB, nMAN, nMAMIN) {			
 			var MAX = Math.max(nTMA, nMAB, nMAN, nMAMIN);
 			//180 ==> max-width dari TMA,MAB,MAN,MAMIN
-			TMA.style.height = ((180/MAX) * nTMA) + "px";
-			MAB.style.height = ((180/MAX) * nMAB) + "px";
-			MAN.style.height = ((180/MAX) * nMAN) + "px";
-			MAMIN.style.height = ((180/MAX) * nMAMIN) + "px";
-			
-			document.getElementById('ketTMA').innerHTML = "<font color='blue'>TMA : " + nTMA + "</font>";
-			document.getElementById('ketMAB').innerHTML = "<font color='red'>MAB : " + nMAB + "</font>";
-			document.getElementById('ketMAN').innerHTML = "<font color='orange'>MAN : " + nMAN + "</font>";
-			document.getElementById('ketMAMIN').innerHTML = "<font color='gray'>MAMin : " + nMAMIN + "</font>";
+			var TMA = document.getElementById('TMA');
+			TMA.setAttribute("y1", (270-((270/MAX)*nTMA)));
+			TMA.setAttribute("y2", (270-((270/MAX)*nTMA)));
+			var MAB = document.getElementById('MAB');
+			MAB.setAttribute("y1", (270-((270/MAX)*nMAB)));
+			MAB.setAttribute("y2", (270-((270/MAX)*nMAB)));
+			var MAN = document.getElementById('MAN');
+			MAN.setAttribute("y1", (270-((270/MAX)*nMAN)));
+			MAN.setAttribute("y2", (270-((270/MAX)*nMAN)));
+			var MAMIN = document.getElementById('MAMIN');
+			MAMIN.setAttribute("y1", (270-((270/MAX)*nMAMIN)));
+			MAMIN.setAttribute("y2", (270-((270/MAX)*nMAMIN)));
 		}
-		//Contoh angka TMA, MAB, MAN, MAMIN diambil dari http://hidrologi.bbws-bsolo.net/bendungan
-		//TMA > MAMIN dan TMA < MAN
-			//gambarBendungan(97.13, 100.00, 99.00, 92.10);
-			//gambarBendungan(276.68, 284.30, 282.96, 275.57);
-		//TMA > MAN dan TMA < MAB
-			//gambarBendungan(110.60, 110.86, 110.56, 105.00);
-		//Angka TMA dibuat lebih besar dari yg lain
-			gambarBendungan(101.13, 100.00, 99.00, 92.10);
+		var nilaiTMA = 105.13;
+		var nilaiMAB = 100.00;
+		var nilaiMAN = 99.00;
+		var nilaiMAMIN = 92.10;
+		document.getElementById('nilaiTMA').textContent = "TMA : " + nilaiTMA;
+		document.getElementById('nilaiMAB').textContent = "MAB : " + nilaiMAB;
+		document.getElementById('nilaiMAN').textContent = "MAN : " + nilaiMAN;
+		document.getElementById('nilaiMAMIN').textContent = "MAMin : " + nilaiMAMIN;
+		gambarBendungan(nilaiTMA,nilaiMAB,nilaiMAN,nilaiMAMIN);
 	</script>
 </body>
 </html>﻿
