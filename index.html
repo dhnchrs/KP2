@@ -4,14 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-       		<script type="text/javascript" src="js/bootstrap.js"></script>
+        	<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 		<style>
-			body{
-				margin:0;
-				padding:0;
-				background-color:#fff;
-			}
 			.content{
 				position: relative;
 				top: 50px;
@@ -26,12 +21,23 @@
 				<text id="nilaiTMA" x="15" y="45" fill="blue" font-size="18pt"></text>
 				<text id="nilaiMAN" x="35" y="75" fill="orange" font-size="14pt"></text>
 				<text id="nilaiMAMIN" x="35" y="105" fill="gray" font-size="14pt"></text>
+				<defs>
+					<linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="0%" style="stop-color:blue;stop-opacity:1" />
+						<stop offset="100%" style="stop-color:lightblue;stop-opacity:1" />
+					</linearGradient>
+				</defs>
+				<path d="M180 271, L180 0 520 0 520 271 Z" stroke="black" stroke-width="1" fill="url(#grad2)" />
 				<line id="TMA" x1="180" x2="520" style="stroke:blue;stroke-width:2" />
 				<line id="MAB" x1="180" x2="520" style="stroke:red;stroke-width:2" />
 				<line id="MAN" x1="180" x2="520" style="stroke:orange;stroke-width:2" />
 				<line id="MAMIN" x1="180" x2="520" style="stroke:gray;stroke-width:2" />
-				<path d="M180 272, L240 272, C600 -88, 460 -88, 820 272, L920 370, 1020 272" stroke="black" stroke-width="5" fill="white" />
 				<line x1="880" y1="330" x2="960" y2="330" style="stroke:blue;stroke-width:5" />
+				<path d="M180 272, L240 272, C600 -88, 460 -88, 820 272, L920 370, 1020 272" stroke="black" stroke-width="5" fill="transparent" />
+				<path d="M180 274, L242 274, C600 -85, 460 -85, 818 274, L919 373 180 373 Z" stroke="black" stroke-width="1" fill="sienna" />
+				<path d="M921 373, L1000 373 1000 295 Z" stroke="black" stroke-width="1" fill="sienna" />
+				<path d="M884 332, L920 366 955 332" stroke="black" stroke-width="0" fill="lightblue" />
+				
 			</g>
 		</svg>
 	</div>
